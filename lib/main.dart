@@ -41,9 +41,9 @@ class _MyAppState extends State<MyApp> {
               onSecondary: Colors.grey,
               error: Colors.grey,
               onError: Colors.grey,
-              background: Colors.grey,
+              background: Colors.white,
               onBackground: Colors.grey,
-              surface: Colors.grey,
+              surface: Colors.amber,
               onSurface: Colors.grey)
       ),
       navigatorKey: Get.key,

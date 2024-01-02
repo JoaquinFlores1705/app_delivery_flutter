@@ -26,12 +26,12 @@ class RegisterPage extends StatelessWidget {
                 key: _formKey,
                 child: Column(
                   children: [
-                    TextFieldGeneric(type: TextInputType.emailAddress,hintText: 'Correo electronico', icon: Icons.email, controller: con.emailController,),
-                    TextFieldGeneric(type: TextInputType.text,hintText: 'Nombre', icon: Icons.person, controller: con.nameController,),
-                    TextFieldGeneric(type: TextInputType.text,hintText: 'Apellido', icon: Icons.person_outlined, controller: con.lastnameController,),
-                    TextFieldGeneric(type: TextInputType.phone,hintText: 'Telefono', icon: Icons.phone, controller: con.phoneController,),
-                    TextFieldGeneric(type: TextInputType.text,hintText: 'Contrasena', icon: Icons.lock, obscureText: true, controller: con.passwordController,),
-                    TextFieldGeneric(type: TextInputType.text,hintText: 'Confirmar Contrasena', icon: Icons.lock_outline, obscureText: true, controller: con.passwordConfirmController),
+                    TextFieldGeneric(type: TextInputType.emailAddress,hintText: 'Correo electronico', icon: Icons.email, controller: con.emailController, required: true,),
+                    TextFieldGeneric(type: TextInputType.text,hintText: 'Nombre', icon: Icons.person, controller: con.nameController, required: true,),
+                    TextFieldGeneric(type: TextInputType.text,hintText: 'Apellido', icon: Icons.person_outlined, controller: con.lastnameController, required: true,),
+                    TextFieldGeneric(type: TextInputType.phone,hintText: 'Telefono', icon: Icons.phone, controller: con.phoneController, required: true,),
+                    TextFieldGeneric(type: TextInputType.text,hintText: 'Contrasena', icon: Icons.lock, obscureText: true, controller: con.passwordController, required: true,),
+                    TextFieldGeneric(type: TextInputType.text,hintText: 'Confirmar Contrasena', icon: Icons.lock_outline, obscureText: true, controller: con.passwordConfirmController, required: true,),
                   ],
                 )
             ),

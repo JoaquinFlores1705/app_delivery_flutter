@@ -32,8 +32,8 @@ class LoginPage extends StatelessWidget {
                   key: _formKey,
                   child: Column(
                     children: [
-                      TextFieldGeneric(type: TextInputType.emailAddress,hintText: 'Correo electronico', icon: Icons.email, controller: con.emailController,),
-                      TextFieldGeneric(type: TextInputType.text,hintText: 'Contrasena', icon: Icons.lock, obscureText: true, controller: con.passwordController,),
+                      TextFieldGeneric(type: TextInputType.emailAddress,hintText: 'Correo electronico', icon: Icons.email, controller: con.emailController, required: true,),
+                      TextFieldGeneric(type: TextInputType.text,hintText: 'Contrasena', icon: Icons.lock, obscureText: true, controller: con.passwordController, required: true,),
                     ],
                   )
               ),

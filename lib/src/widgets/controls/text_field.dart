@@ -7,7 +7,8 @@ class TextFieldGeneric extends StatelessWidget {
   final IconData? icon;
   final bool obscureText;
   final TextEditingController? controller;
-  const TextFieldGeneric({super.key, this.type = TextInputType.text, this.hintText = "", this.obscureText = false, this.icon, this.controller});
+  final bool required;
+  const TextFieldGeneric({super.key, this.type = TextInputType.text, this.hintText = "", this.obscureText = false, this.required = false, this.icon, this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +24,10 @@ class TextFieldGeneric extends StatelessWidget {
             prefixIcon: Icon(icon)
         ),
         validator: (value){
-          if(value==null || value.isEmpty || value==''){
+          if(required && (value==null || value.isEmpty || value=='')){
             return 'Este campo es obligatorio';
           }
-          if(type == TextInputType.emailAddress && !GetUtils.isEmail(value)){
+          if(value!.trim() != "" && type == TextInputType.emailAddress && !GetUtils.isEmail(value)){
             return 'No es un email valido';
           }
           return null;

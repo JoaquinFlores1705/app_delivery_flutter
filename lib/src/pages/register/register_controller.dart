@@ -1,3 +1,5 @@
+import 'package:app_delivery_flutter/src/models/user.dart';
+import 'package:app_delivery_flutter/src/providers/users_providers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +12,9 @@ class RegisterController extends GetxController {
   TextEditingController passwordController = TextEditingController();
   TextEditingController passwordConfirmController = TextEditingController();
 
-  void register(GlobalKey<FormState> form){
+  UsersProvider userProvider = UsersProvider();
+
+  void register(GlobalKey<FormState> form) async {
     if(form.currentState!.validate()) {
       String email = emailController.text.trim();
       String password = passwordController.text.trim();
@@ -19,16 +23,19 @@ class RegisterController extends GetxController {
       String phone = phoneController.text.trim();
       String passwordConfirm = passwordConfirmController.text.trim();
 
-      print("Email ${email}");
-      print("Password ${password}");
-      print("Name ${name}");
-      print("Lastname ${lastname}");
-      print("Phone ${phone}");
-      print("Password Confirm ${passwordConfirm}");
+      User user = User(
+          name: name,
+          lastname: lastname,
+          email: email,
+          phone: phone,
+          image: "",
+          password: password);
 
-      Get.snackbar('Email', email);
-      Get.snackbar('Password', password);
+      Response response = await userProvider.create(user);
+      
+      print(user.id);
+
+      print('RESPONSE ${response.body}');
     }
   }
-
 }

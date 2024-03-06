@@ -1,3 +1,4 @@
+import 'package:app_delivery_flutter/src/widgets/controls/AddPhotoGalery/alert_galery_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:app_delivery_flutter/src/pages/register/register_controller.dart';
 import 'package:app_delivery_flutter/src/widgets/controls/button_back.dart';
@@ -36,9 +37,11 @@ class RegisterPage extends StatelessWidget {
                 )
             ),
 
-            ButtonPrincipal(text: "REGISTRAR", onPressed: () => con.register(_formKey),)
+            ButtonPrincipal(text: "REGISTRAR", onPressed: () => con.register(context, _formKey),)
           ],),
-          ImageUser(backgroundImage: 'assets/img/user_profile.png',),
+          GetBuilder<RegisterController> (
+            builder: (value) => ImageUser(backgroundImage: 'assets/img/user_profile.png', onTap: () => con.alert!.showAlertDialog(context), imageFile: con.alert!.imageFile,),
+          ),
           ButtonBack()
         ],
       ),
